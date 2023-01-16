@@ -8,25 +8,24 @@ public class Class1
 
     public void Test(UseMe parameter)
     {
-        //if (parameter is not null &&
-        //    parameter.Property1.InnerClass2.List[0].Age == 1 &&
-        //    parameter.Property1.InnerClass2.List[0].Name is "")
-        //{
-        //}
-
-        if (
-            parameter is
+#if NET7_0
+        if (parameter is
             {
-                Property1.InnerClass2.List: [{ Age: 1 }, { Name: not null }],
-                Property1.InnerClass2.List:
-                [
-                    {
-#if NET6_0
-                        Age.AgeField: 1,
+                Property1.InnerClass2.List: [{ Age.AgeField: 1, Age.AgeField2: 2 }],
+                Property1.InnerClass2.List: [{ Age.AgeField: 1, Age.AgeField2: 2 }]
+            })
+        {
+        }
 #endif
-                        Age.AgeField2: 2
-                    }
-                ]
+        if (parameter is
+            {
+#if NET6_0
+                Property1.InnerClass2.List: null,
+                Property1.InnerClass2.List: null,
+#endif
+#if NET7_0
+                Property1.InnerClass2.List: [{ Age.AgeField: 1, Age.AgeField2: 2 }]
+#endif
             })
         {
         }

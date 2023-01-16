@@ -8,8 +8,7 @@ public class Class1
 
     public void Test(UseMe parameter)
     {
-        if (
-            parameter is
+        if (parameter is
             {
                 Property1.InnerClass2.List: [{ Age.AgeField: 1, Age.AgeField2: 2 }],
                 Property1.InnerClass2.List: [{ Age.AgeField: 1, Age.AgeField2: 2 }]
